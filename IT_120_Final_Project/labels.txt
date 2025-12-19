@@ -1,0 +1,10 @@
+0 Lion
+1 Tiger
+2 Elephant
+3 Giraffe
+4 Zebra
+5 Bear
+6 Deer
+7 Wolf
+8 Fox
+9 Monkey

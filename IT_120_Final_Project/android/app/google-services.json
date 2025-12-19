@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "60760683691",
+    "firebase_url": "https://pogoy-wild-animals-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pogoy-wild-animals",
+    "storage_bucket": "pogoy-wild-animals.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60760683691:android:fdf3580112fce85d6933ee",
+        "android_client_info": {
+          "package_name": "Pogoy.Wild.Animals"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdZjfl7qjVfepXqklLEp-D7-iTD9fBH_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60760683691:android:9bf64dffb33479ae6933ee",
+        "android_client_info": {
+          "package_name": "com.example.wild_animals"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdZjfl7qjVfepXqklLEp-D7-iTD9fBH_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,47 @@
+type User @table {
+  displayName: String!
+  email: String
+  photoUrl: String
+  bio: String
+  location: String
+  createdAt: Timestamp!
+}
+
+type Animal @table {
+  commonName: String!
+  scientificName: String!
+  conservationStatus: String!
+  description: String
+  habitat: String
+  diet: String
+  averageLifespan: Int
+  imageURL: String
+  createdAt: Timestamp!
+}
+
+type Sighting @table {
+  user: User!
+  animal: Animal!
+  sightedAt: Timestamp!
+  locationLat: Float!
+  locationLong: Float!
+  notes: String
+  photoUrl: String
+  createdAt: Timestamp!
+}
+
+type Observation @table {
+  sighting: Sighting!
+  observationType: String!
+  description: String
+  photoUrl: String
+  createdAt: Timestamp!
+}
+
+type CommunityPost @table {
+  user: User!
+  content: String!
+  imageUrl: String
+  sighting: Sighting
+  createdAt: Timestamp!
+}

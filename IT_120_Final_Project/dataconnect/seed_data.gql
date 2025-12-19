@@ -1,0 +1,82 @@
+mutation CreateSeedData @transaction @auth(level: PUBLIC, insecureReason: "This operation is for seeding data and does not require authentication") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      displayName: "demouser1",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      displayName: "demouser2",
+      createdAt: "2024-04-26T13:00:00Z"
+    }
+  ])
+  animal_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      commonName: "Lion",
+      scientificName: "Panthera leo",
+      conservationStatus: "Vulnerable",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+      commonName: "Elephant",
+      scientificName: "Loxodonta africana",
+      conservationStatus: "Endangered",
+      createdAt: "2024-04-26T13:00:00Z"
+    }
+  ])
+  sighting_insertMany(data: [
+    {
+      id: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      animalId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      locationLat: 34.0522,
+      locationLong: -118.2437,
+      sightedAt: "2024-04-27T10:00:00Z",
+      createdAt: "2024-04-26T14:00:00Z"
+    },
+    {
+      id: "d4e5f6a7-b8c9-0123-4567-890abcdef012",
+      animalId: "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      locationLat: -23.5505,
+      locationLong: 46.6333,
+      sightedAt: "2024-04-27T11:00:00Z",
+      createdAt: "2024-04-26T15:00:00Z"
+    }
+  ])
+  communityPost_insertMany(data: [
+    {
+      id: "e5f6a7b8-c9d0-1234-5678-90abcdef0123",
+      sightingId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      content: "I saw a lion today!",
+      createdAt: "2024-04-27T12:00:00Z"
+    },
+    {
+      id: "f6a7b8c9-d0e1-2345-6789-0abcdef01234",
+      sightingId: "d4e5f6a7-b8c9-0123-4567-890abcdef012",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      content: "I saw an elephant today!",
+      createdAt: "2024-04-27T13:00:00Z"
+    }
+  ])
+  observation_insertMany(data: [
+    {
+      id: "123e4567-e89b-12d3-a456-426614174000",
+      sightingId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      createdAt: "2024-04-27T14:00:00Z",
+      description: "A majestic lion was spotted",
+      observationType: "sighting"
+    },
+    {
+      id: "5678123e-89bc-4d33-a456-426655440000",
+      sightingId: "d4e5f6a7-b8c9-0123-4567-890abcdef012",
+      createdAt: "2024-04-27T15:00:00Z",
+      description: "An enormous elephant was seen",
+      observationType: "sighting"
+    }
+  ])
+}

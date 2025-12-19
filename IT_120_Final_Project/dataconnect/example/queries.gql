@@ -1,0 +1,36 @@
+mutation CreateUserMutation($displayName: String!, $email: String, $bio: String, $location: String, $photoUrl: String) @auth(level: USER) {
+  user_insert(data: {displayName: $displayName, email: $email, bio: $bio, location: $location, photoUrl: $photoUrl, createdAt_expr: "request.time", id_expr: "uuidV4()"})
+}
+
+query GetAnimalById($id: UUID!) @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  animal(id: $id) {
+    id
+    commonName
+    scientificName
+    averageLifespan
+    conservationStatus
+    diet
+    habitat
+    description
+    imageURL
+    createdAt
+  }
+}
+
+query ListSightingsByAnimalId($animalId: UUID!) @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  sightings(where: {animalId: {eq: $animalId}}) {
+    id
+    animalId
+    userId
+    locationLat
+    locationLong
+    sightedAt
+    notes
+    photoUrl
+    createdAt
+  }
+}
+
+mutation CreateCommunityPost($sightingId: UUID, $content: String!, $imageUrl: String) @auth(level: USER) {
+  communityPost_insert(data: {sightingId: $sightingId, userId_expr: "auth.uid", content: $content, imageUrl: $imageUrl, createdAt_expr: "request.time"})
+}
